@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sprawdź PIN</title>
+    <script>
+      function checkPIN() {
+        var enteredPIN = document.getElementById("pinInput").value;
+
+        // Sprawdzenie, czy wpisany PIN zawiera tylko litery
+        var letterRegex = /^[a-zA-Z]+$/;
+        if (!letterRegex.test(enteredPIN)) {
+          alert("PIN może zawierać tylko litery.");
+          return;
+        }
+
+        // Tutaj możesz dodać swoją logikę weryfikacji PIN-u
+
+        // Przykładowa logika - jeśli PIN to "abcde", wyświetl link
+        var correctPIN = "JACOB";
+        if (enteredPIN === correctPIN) {
+          var linkElement = document.getElementById("link");
+          linkElement.style.display = "block";
+        } else {
+          alert("Nieprawidłowy PIN.");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Sprawdź PIN</h1>
+    <input type="text" id="pinInput" placeholder="Wpisz PIN" />
+    <button onclick="checkPIN()">Sprawdź</button>
+    <p id="link" style="display: none;">
+      Twój PIN jest poprawny. Oto <a href="https://example.com">link</a>.
+    </p>
+  </body>
+</html>
